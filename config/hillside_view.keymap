@@ -168,6 +168,8 @@
                              &kp G                                        &kp ESC
            &kp N4  &kp LALT  &kp SPACE  &kp B                     &trans  &trans   &trans  &to 0
             >;
+
+            label = "Game";
         };
     };
 };
