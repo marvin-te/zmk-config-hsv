@@ -147,6 +147,16 @@
             tapping-term-ms = <700>;
             flavor = "tap-preferred";
         };
+
+        h_sys_reset: h_sys_reset {
+            compatible = "zmk,behavior-hold-tap";
+            label = "H_SYS_RESET";
+            bindings = <&sys_reset>, <&none>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <700>;
+            flavor = "tap-preferred";
+        };
     };
 
     macros {
@@ -198,7 +208,7 @@
             display-name = "Adjust";
             bindings = <
 &h_bootloader 0 0  &h_bt_clr 0 0  &none            &to 4         &none           &none             &none     &kp C_PP       &kp C_PREV   &kp C_NEXT  &kp PRINTSCREEN  &h_bootloader 0 0
-&sys_reset         &none          &kp PRINTSCREEN  &none         &studio_unlock  &out OUT_TOG      &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP  &kp END     &none            &sys_reset
+&h_sys_reset 0 0   &none          &kp PRINTSCREEN  &none         &studio_unlock  &out OUT_TOG      &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP  &kp END     &none            &h_sys_reset 0 0
 &trans             &bt BT_SEL 0   &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4      &none     &none          &none        &none       &none            &trans
                                                    &kp DELETE                                                               &trans
                    &trans         &trans           &trans        &trans                                      &trans         &trans       &trans      &trans
