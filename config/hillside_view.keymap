@@ -104,7 +104,7 @@
         th: tap_hold {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <220>;
+            tapping-term-ms = <210>;
             quick-tap-ms = <175>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
@@ -128,11 +128,11 @@
         default_layer {
             display-name = "Default";
             bindings = <
-&kp ESC         &kp Q      &kp W     &kp E        &kp R         &kp T      &kp Y  &kp U      &kp I        &kp O     &kp P          &bsp_del
-&kp TAB         &kp A      &kp S     &kp D        &kp F         &kp G      &kp H  &kp J      &kp K        &kp L     &kp SEMICOLON  &kp SQT
-&kp LEFT_SHIFT  &kp Z      &kp X     &kp C        &kp V         &kp B      &kp N  &kp M      &kp COMMA    &kp DOT   &kp FSLH       &kp RSHFT
-                                     &bsp_del                                                &kp ENTER
-                &kp LCTRL  &kp LALT  &lq 2 SPACE  &kp LEFT_GUI                    &kp SPACE  &lq 1 SPACE  &kp RALT  &kp RCTRL
+&kp ESC         &kp Q      &kp W     &kp E          &kp R         &kp T      &kp Y  &kp U      &kp I        &kp O     &kp P          &kp BACKSPACE
+&kp TAB         &kp A      &kp S     &kp D          &kp F         &kp G      &kp H  &kp J      &kp K        &kp L     &kp SEMICOLON  &kp SQT
+&kp LEFT_SHIFT  &kp Z      &kp X     &kp C          &kp V         &kp B      &kp N  &kp M      &kp COMMA    &kp DOT   &kp FSLH       &kp RSHFT
+                                     &kp BACKSPACE                                             &kp ENTER
+                &kp LCTRL  &kp LALT  &lq 2 SPACE    &kp LEFT_GUI                    &kp SPACE  &lq 1 SPACE  &kp RALT  &kp RCTRL
             >;
         };
 
@@ -152,8 +152,8 @@
             bindings = <
 &th TILDE GRAVE     &kp EXCL          &kp AT             &kp HASH        &kp DLLR         &kp PRCNT           &kp CARET  &kp AMPS  &kp ASTERISK  &kp LPAR   &kp RPAR   &th UNDERSCORE MINUS
 &th PIPE BACKSLASH  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE  &th PLUS EQUAL      &kp LEFT   &kp DOWN  &kp UP        &kp RIGHT  &kp COLON  &kp DQT
-&trans              &none             &none              &none           &none            &none               &none      &none     &kp LT        &kp GT     &kp QMARK  &trans
-                                                         &trans                                                                    &trans
+&trans              &none             &kp MINUS          &kp PLUS        &kp EQUAL        &none               &none      &none     &kp LT        &kp GT     &kp QMARK  &trans
+                                                         &kp DEL                                                                   &trans
                     &trans            &trans             &trans          &trans                                          &trans    &trans        &trans     &trans
             >;
         };
@@ -164,7 +164,7 @@
 &bootloader  &bt BT_CLR    &none            &to 4         &none           &none             &none     &kp C_PP       &kp C_PREV   &kp C_NEXT  &kp PRINTSCREEN  &bootloader
 &sys_reset   &none         &kp PRINTSCREEN  &none         &studio_unlock  &out OUT_TOG      &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP  &kp END     &none            &sys_reset
 &trans       &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4      &none     &none          &none        &none       &none            &trans
-                                            &trans                                                                   &trans
+                                            &kp DELETE                                                               &trans
              &trans        &trans           &trans        &trans                                      &trans         &trans       &trans      &trans
             >;
 
