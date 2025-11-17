@@ -198,7 +198,7 @@
             bindings = <
 &th TILDE GRAVE     &kp EXCL          &kp AT             &kp HASH        &kp DLLR         &kp PRCNT           &kp CARET  &kp AMPS  &kp ASTERISK  &kp LPAR   &kp RPAR   &th UNDERSCORE MINUS
 &th PIPE BACKSLASH  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE  &th PLUS EQUAL      &kp LEFT   &kp DOWN  &kp UP        &kp RIGHT  &kp COLON  &kp DQT
-&trans              &none             &kp MINUS          &kp PLUS        &kp EQUAL        &none               &none      &none     &kp LT        &kp GT     &kp QMARK  &trans
+&trans              &none             &kp MINUS          &kp PLUS        &kp EQUAL        &th MINUS PLUS      &none      &none     &kp LT        &kp GT     &kp QMARK  &trans
                                                          &kp DEL                                                                   &trans
                     &trans            &trans             &trans          &trans                                          &trans    &trans        &trans     &trans
             >;
