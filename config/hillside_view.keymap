@@ -120,6 +120,23 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+        h_bt: hold_bluetooth {
+            compatible = "zmk,behavior-hold-tap";
+            label = "H_BT";
+            bindings = <&bt>, <&none>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <700>;
+            flavor = "tap-preferred";
+        };
+
+        scw: shift_capsword {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SCW";
+            #binding-cells = <0>;
+            bindings = <&kp LSHIFT>, <&kp LSHFT>, <&caps_word>;
+        };
     };
 
     keymap {
@@ -128,11 +145,11 @@
         default_layer {
             display-name = "Default";
             bindings = <
-&kp ESC         &kp Q      &kp W     &kp E          &kp R         &kp T      &kp Y  &kp U      &kp I        &kp O     &kp P          &kp BACKSPACE
-&kp TAB         &kp A      &kp S     &kp D          &kp F         &kp G      &kp H  &kp J      &kp K        &kp L     &kp SEMICOLON  &kp SQT
-&kp LEFT_SHIFT  &kp Z      &kp X     &kp C          &kp V         &kp B      &kp N  &kp M      &kp COMMA    &kp DOT   &kp FSLH       &kp RSHFT
-                                     &kp BACKSPACE                                             &kp ENTER
-                &kp LCTRL  &kp LALT  &lq 2 SPACE    &kp LEFT_GUI                    &kp SPACE  &lq 1 SPACE  &kp RALT  &kp RCTRL
+&kp ESC  &kp Q      &kp W     &kp E          &kp R         &kp T      &kp Y  &kp U      &kp I        &kp O     &kp P          &kp BACKSPACE
+&kp TAB  &kp A      &kp S     &kp D          &kp F         &kp G      &kp H  &kp J      &kp K        &kp L     &kp SEMICOLON  &kp SQT
+&scw     &kp Z      &kp X     &kp C          &kp V         &kp B      &kp N  &kp M      &kp COMMA    &kp DOT   &kp FSLH       &scw
+                              &kp BACKSPACE                                             &kp ENTER
+         &kp LCTRL  &kp LALT  &lq 2 SPACE    &kp LEFT_GUI                    &kp SPACE  &lq 1 SPACE  &kp RALT  &kp RCTRL
             >;
         };
 
@@ -161,11 +178,11 @@
         adj_layer {
             display-name = "Adjust";
             bindings = <
-&bootloader  &bt BT_CLR    &none            &to 4         &none           &none             &none     &kp C_PP       &kp C_PREV   &kp C_NEXT  &kp PRINTSCREEN  &bootloader
-&sys_reset   &none         &kp PRINTSCREEN  &none         &studio_unlock  &out OUT_TOG      &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP  &kp END     &none            &sys_reset
-&trans       &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4      &none     &none          &none        &none       &none            &trans
-                                            &kp DELETE                                                               &trans
-             &trans        &trans           &trans        &trans                                      &trans         &trans       &trans      &trans
+&bootloader  &h_bt BT_CLR 0    &none             &to 4             &none             &none                 &none     &kp C_PP       &kp C_PREV   &kp C_NEXT  &kp PRINTSCREEN  &bootloader
+&sys_reset   &none             &kp PRINTSCREEN   &none             &studio_unlock    &out OUT_TOG          &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP  &kp END     &none            &sys_reset
+&trans       &h_bt BT_SEL 0 0  &h_bt BT_SEL 0 1  &h_bt BT_SEL 0 2  &h_bt BT_SEL 0 3  &h_bt BT_SEL 0 4      &none     &none          &none        &none       &none            &trans
+                                                 &kp DELETE                                                                         &trans
+             &trans            &trans            &trans            &trans                                            &trans         &trans       &trans      &trans
             >;
 
             // F15 and F14 are brightness controls for macOS
