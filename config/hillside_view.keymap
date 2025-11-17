@@ -121,16 +121,6 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        h_bt: hold_bluetooth {
-            compatible = "zmk,behavior-hold-tap";
-            label = "Hold for BT (Only use this in a Macro)";
-            bindings = <&bt>, <&none>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <700>;
-            flavor = "tap-preferred";
-        };
-
         scw: shift_capsword {
             compatible = "zmk,behavior-tap-dance";
             label = "SCW";
@@ -147,14 +137,24 @@
             tapping-term-ms = <700>;
             flavor = "tap-preferred";
         };
+
+        h_bt_clr: h_bt_clr {
+            compatible = "zmk,behavior-hold-tap";
+            label = "H_BT_CLR";
+            bindings = <&bt_clr>, <&none>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <700>;
+            flavor = "tap-preferred";
+        };
     };
 
     macros {
-        h_bt_clr: h_bt_clr {
-            compatible = "zmk,behavior-macro-two-param";
-            #binding-cells = <2>;
-            bindings = <&macro_param_2to2 &h_bt BT_CLR MACRO_PLACEHOLDER>;
-            label = "H_BT_CLR";
+        bt_clr: bt_clr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_CLR>;
+            label = "BT_CLR";
         };
     };
 
