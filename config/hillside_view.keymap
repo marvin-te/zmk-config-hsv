@@ -123,14 +123,16 @@
 
         scw: shift_capsword {
             compatible = "zmk,behavior-tap-dance";
-            label = "SCW";
+            label = "Shift/CapsWord";
             #binding-cells = <0>;
             bindings = <&kp LSHIFT>, <&kp LSHFT>, <&caps_word>;
+
+            tapping-term-ms = <300>;
         };
 
         h_bt_clr: h_bt_clr {
             compatible = "zmk,behavior-hold-tap";
-            label = "H_BT_CLR";
+            label = "BtClr on Hold";
             bindings = <&bt_clr>, <&none>;
 
             #binding-cells = <2>;
@@ -140,7 +142,7 @@
 
         h_bootloader: h_bootloader {
             compatible = "zmk,behavior-hold-tap";
-            label = "H_BOOTLOADER";
+            label = "Bootloader on Hold";
             bindings = <&bootloader>, <&none>;
 
             #binding-cells = <2>;
@@ -150,7 +152,7 @@
 
         h_sys_reset: h_sys_reset {
             compatible = "zmk,behavior-hold-tap";
-            label = "H_SYS_RESET";
+            label = "SysReset on Hold";
             bindings = <&sys_reset>, <&none>;
 
             #binding-cells = <2>;
@@ -164,7 +166,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&bt BT_CLR>;
-            label = "BT_CLR";
+            label = "BtClr for use in HoldAction";
         };
     };
 
@@ -219,14 +221,26 @@
 
         game_layer {
             bindings = <
-&kp TAB    &kp N1  &kp Q     &kp W      &kp E  &kp R      &none  &none     &kp UP    &none      &none  &to 0
-&kp LSHFT  &kp N2  &kp A     &kp S      &kp D  &kp F      &none  &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
-&kp LCTRL  &kp N3  &kp N4    &kp X      &kp C  &kp V      &none  &none     &none     &none      &none  &none
-                             &kp G                                         &kp ESC
-           &kp N5  &kp LALT  &kp SPACE  &kp B                    &none     &none     &none      &none
+&kp T  &kp TAB    &kp Q     &kp W       &kp E  &kp R      &none  &none     &kp UP    &none      &none  &none
+&kp G  &kp LSHFT  &kp A     &kp S       &kp D  &kp F      &none  &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
+&kp B  &kp LCTRL  &kp Z     &kp X       &kp C  &kp V      &none  &none     &none     &none      &none  &none
+                            &kp ESCAPE                                     &to 0
+       &kp GRAVE  &kp LALT  &kp SPACE   &mo 5                    &none     &none     &none      &none
             >;
 
             label = "Game";
+        };
+
+        game_layer_2 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans                                      &trans
+        &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans
+            >;
+
+            label = "Game+";
         };
     };
 };
