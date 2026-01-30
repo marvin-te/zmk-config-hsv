@@ -87,7 +87,15 @@
         };
     };
 
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        to_game_layer {
+            bindings = <&to 4>;
+            key-positions = <3 14 16>;
+            layers = <0>;
+        };
+    };
 
     behaviors {
         lq: layer_toggle_quick {
