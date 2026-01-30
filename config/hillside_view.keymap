@@ -35,7 +35,7 @@
     tpad_central_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&glidepoint0>;
-        y-invert;
+        invert-y;
         scale-multiplier = <2>;
 
         // xy-swap;
@@ -46,7 +46,7 @@
         compatible = "zmk,input-behavior-listener";
         device = <&glidepoint1>;
         layers = <DEF SYM ADJ>;
-        y-invert;
+        invert-y;
         scale-multiplier = <2>;
 
         /* NOTE: do NOT override event code here, */
